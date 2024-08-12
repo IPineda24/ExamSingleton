@@ -1,0 +1,56 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #ffcc00;
+}
+
+input, textarea {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #ffcc00;
+    color: #121212;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e6b800;
+}
+
+#error-message {
+    color: red;
+    display: none;
+}
+
+#examContent {
+    display: none;
+}
+
+#error-message {
+    color: red;
+}
+
+iframe {
+    border: 2px solid #555555;
+    margin-top: 15px;
+}
+
+.error-message {
+    color: #ff4d4d;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="pinContainer">
+        <h2>Introduce tu Nombre y PIN</h2>
+        <input type="text" id="nameInput" placeholder="Ingrese su nombre"><br><br>
+        <input type="password" id="pinInput" placeholder="Ingrese PIN"><br><br>
+        <button onclick="checkCredentials()">Ingresar</button>
+        <p id="pinError" class="error-message">PIN incorrecto o falta de nombre. Intenta de nuevo.</p>
+    </div>
+
+    <div id="examContent">
+        <h1>Examen</h1>
+         <h1>Ejercicio: Implementación de una Conexión Única a la Base de Datos</h1>
+    <p>Descripción:</p>
+    <p>Vas a implementar un sistema de conexión a una base de datos que solo permita una única instancia activa en toda la aplicación. El objetivo es garantizar que no se creen múltiples conexiones innecesarias a la base de datos, lo que puede causar problemas de rendimiento y gestión de recursos.</p>
+    
+    <h2>Requerimientos:</h2>
+    <ol>
+        <li>
+            <strong>Clase DatabaseConnection:</strong>
+            <ul>
+                <li>Implementa la clase DatabaseConnection utilizando el patrón Singleton.</li>
+                <li>La clase debe tener un método <code>connect()</code> que simule la conexión a la base de datos. Este método puede simplemente retornar un mensaje que indique que la conexión ha sido establecida.</li>
+                <li>Implementa un método <code>disconnect()</code> que simule la desconexión de la base de datos.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Validación de Instancia Única:</strong>
+            <ul>
+                <li>Asegúrate de que cada vez que se intente crear una nueva instancia de DatabaseConnection, se devuelva la misma instancia que la anterior.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Prueba del Singleton:</strong>
+            <ul>
+                <li>Crea dos instancias de DatabaseConnection.</li>
+                <li>Conecta a la base de datos usando ambas instancias.</li>
+                <li>Verifica que ambas instancias son idénticas y que la conexión se establece solo una vez.</li>
+            </ul>
+        </li>
+    </ol>
+<br><br>
+    <img src="test.png" alt="">
+
+    <br><br><br>
+        <p id="timer">Tiempo restante: <span id="time">3600</span> segundos</p>
+        <p id="warning"></p>
+
+        <!-- Iframe para cargar el sitio -->
+        <iframe src="https://onecompiler.com/nodejs" width="90%" height="500px"></iframe>
+
+        <!-- Formulario para pegar el código -->
+        <form id="examForm">
+            <label for="code">Pega aquí tu código editado:</label><br>
+            <textarea id="code" name="code" rows="10" cols="50"></textarea><br><br>
+
+            <button type="button" onclick="submitExam()">Enviar Examen</button>
+        </form>
+        <h1>Documentación</h1>
+        <iframe src="https://codi.link/%7C%7CY2xhc3MgUHJpbnRlciB7DQogIC8vIFZhcmlhYmxlIGVzdMOhdGljYSBwYXJhIGFsbWFjZW5hciBsYSBpbnN0YW5jaWEgw7puaWNhIGRlIFByaW50ZXINCiAgc3RhdGljICNpbnN0YW5jZTsNCg0KICAvLyBDb25zdHJ1Y3RvciBwcml2YWRvIHBhcmEgZXZpdGFyIGxhIGNyZWFjacOzbiBkZSBtw7psdGlwbGVzIGluc3RhbmNpYXMNCiAgY29uc3RydWN0b3IoKSB7DQogICAgaWYgKFByaW50ZXIuI2luc3RhbmNlKSB7DQogICAgICByZXR1cm4gUHJpbnRlci4jaW5zdGFuY2U7DQogICAgfQ0KDQogICAgLy8gSW5pY2lhbGl6YWNpw7NuIGRlIHByb3BpZWRhZGVzIGRlIGxhIGltcHJlc29yYQ0KICAgIHRoaXMucHJpbnRRdWV1ZSA9IFtdOw0KICAgIFByaW50ZXIuI2luc3RhbmNlID0gdGhpczsNCiAgfQ0KDQogIC8vIE3DqXRvZG8gcGFyYSBhZ3JlZ2FyIHRyYWJham9zIGEgbGEgY29sYSBkZSBpbXByZXNpw7NuDQogIGFkZEpvYihqb2IpIHsNCiAgICBpZiAodHlwZW9mIGpvYiAhPT0gJ3N0cmluZycgfHwgam9iLnRyaW0oKSA9PT0gJycpIHsNCiAgICAgIGNvbnNvbGUuZXJyb3IoJ0ludmFsaWQgam9iLiBQbGVhc2UgcHJvdmlkZSBhIG5vbi1lbXB0eSBzdHJpbmcuJyk7DQogICAgICByZXR1cm47DQogICAgfQ0KICAgIHRoaXMucHJpbnRRdWV1ZS5wdXNoKGpvYik7DQogICAgY29uc29sZS5sb2coYEpvYiAnJHtqb2J9JyBhZGRlZCB0byB0aGUgcHJpbnQgcXVldWUuYCk7DQogIH0NCg0KICAvLyBNw6l0b2RvIHBhcmEgcHJvY2VzYXIgeSBlbGltaW5hciB0cmFiYWpvcyBkZSBsYSBjb2xhIGRlIGltcHJlc2nDs24NCiAgcHJpbnQoKSB7DQogICAgaWYgKHRoaXMucHJpbnRRdWV1ZS5sZW5ndGggPT09IDApIHsNCiAgICAgIGNvbnNvbGUubG9nKCdObyBqb2JzIGluIHRoZSBwcmludCBxdWV1ZS4nKTsNCiAgICAgIHJldHVybjsNCiAgICB9DQoNCiAgICBjb25zdCBqb2IgPSB0aGlzLnByaW50UXVldWUuc2hpZnQoKTsNCiAgICBjb25zb2xlLmxvZyhgUHJpbnRpbmcgam9iOiAke2pvYn1gKTsNCiAgfQ0KDQogIC8vIE3DqXRvZG8gZXN0w6F0aWNvIHBhcmEgb2J0ZW5lciBsYSBpbnN0YW5jaWEgw7puaWNhIGRlIFByaW50ZXINCiAgc3RhdGljIGdldEluc3RhbmNlKCkgew0KICAgIGlmICghUHJpbnRlci4jaW5zdGFuY2UpIHsNCiAgICAgIFByaW50ZXIuI2luc3RhbmNlID0gbmV3IFByaW50ZXIoKTsNCiAgICB9DQogICAgcmV0dXJuIFByaW50ZXIuI2luc3RhbmNlOw0KICB9DQp9DQoNCi8vIFVzbyBkZWwgcGF0csOzbiBTaW5nbGV0b24gcGFyYSBsYSBpbXByZXNvcmENCmNvbnN0IHByaW50ZXIxID0gUHJpbnRlci5nZXRJbnN0YW5jZSgpOw0KY29uc3QgcHJpbnRlcjIgPSBQcmludGVyLmdldEluc3RhbmNlKCk7DQoNCnByaW50ZXIxLmFkZEpvYignRG9jdW1lbnQgMScpOw0KcHJpbnRlcjEuYWRkSm9iKCdEb2N1bWVudCAyJyk7DQpwcmludGVyMS5hZGRKb2IoJycpOyAvLyBJbnRlbnRvIGRlIGFncmVnYXIgdW4gdHJhYmFqbyBpbnbDoWxpZG8NCg0KcHJpbnRlcjIucHJpbnQoKTsgLy8gRGViZXLDrWEgaW1wcmltaXIgIkRvY3VtZW50IDEiDQpwcmludGVyMi5wcmludCgpOyAvLyBEZWJlcsOtYSBpbXByaW1pciAiRG9jdW1lbnQgMiINCnByaW50ZXIyLnByaW50KCk7IC8vIERlYmVyw61hIGluZGljYXIgcXVlIG5vIGhheSB0cmFiYWpvcyBlbiBsYSBjb2xhDQoNCmNvbnNvbGUubG9nKHByaW50ZXIxID09PSBwcmludGVyMik7IC8vIERlYmVyw61hIHNlciB0cnVlDQo=" width="90%" height="500px"></iframe>
+        
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.21/jspdf.plugin.autotable.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
