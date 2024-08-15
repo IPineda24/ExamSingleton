@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="pinContainer">
+        <h2>Introduce tu Nombre y PIN</h2>
+        <input type="text" id="nameInput" placeholder="Ingrese su nombre"><br><br>
+        <input type="password" id="pinInput" placeholder="Ingrese PIN"><br><br>
+        <button onclick="checkCredentials()">Ingresar</button>
+        <p id="pinError" class="error-message">PIN incorrecto o falta de nombre. Intenta de nuevo.</p>
+    </div>
+
+    <div id="examContent">
     
     <!--ADD YOUR INSTRUCCTIOS HERE-->
 
@@ -31,7 +40,7 @@
             <button type="button" onclick="submitExam()">Enviar Examen</button>
         </form>
 
-        
+
         <h1>Documentación</h1>
 
 
