@@ -2,7 +2,7 @@ let timeLeft = 7200; // Tiempo de examen en segundos
 let penalty = 10; // Puntos a restar por cambiar de pestaña
 let points = 100; // Puntos totales del examen
 let warningCount = 0; // Contador de advertencias
-const correctPin = '9922'; // PIN correcto
+const correctPin = '6623'; // PIN correcto
 
 const timeElement = document.getElementById('time');
 const warningElement = document.getElementById('warning');
@@ -87,6 +87,6 @@ function submitExam() {
 
     // Esperar 5 segundos y redirigir
     setTimeout(() => {
-        window.location.href = "https://teams.microsoft.com/l/entity/66aeee93-507d-479a-a3ef-8f494af43945/classroom?context=%7B%22subEntityId%22%3A%22%7B%5C%22version%5C%22%3A%5C%221.0%5C%22%2C%5C%22config%5C%22%3A%7B%5C%22classes%5C%22%3A%5B%7B%5C%22id%5C%22%3A%5C%22300f4adc-0573-4884-a31b-c21463df5f74%5C%22%2C%5C%22assignmentIds%5C%22%3A%5B%5C%2294908368-b4ab-4aef-ab2d-e943511a53df%5C%22%5D%7D%5D%7D%2C%5C%22action%5C%22%3A%5C%22navigate%5C%22%2C%5C%22view%5C%22%3A%5C%22assignment-viewer%5C%22%2C%5C%22appId%5C%22%3A%5C%225e3ce6c0-2b1f-4285-8d4b-75ee78787346%5C%22%2C%5C%22deeplinkType%5C%22%3A4%7D%22%2C%22channelId%22%3Anull%7D";
+        window.location.href = "https://teams.microsoft.com/l/entity/66aeee93-507d-479a-a3ef-8f494af43945/classroom?context=%7B%22subEntityId%22%3A%22%7B%5C%22version%5C%22%3A%5C%221.0%5C%22%2C%5C%22config%5C%22%3A%7B%5C%22classes%5C%22%3A%5B%7B%5C%22id%5C%22%3A%5C%22300f4adc-0573-4884-a31b-c21463df5f74%5C%22%2C%5C%22assignmentIds%5C%22%3A%5B%5C%22001b3e66-5cea-42c5-86b5-9dad9737abb7%5C%22%5D%7D%5D%7D%2C%5C%22action%5C%22%3A%5C%22navigate%5C%22%2C%5C%22view%5C%22%3A%5C%22assignment-viewer%5C%22%2C%5C%22appId%5C%22%3A%5C%225e3ce6c0-2b1f-4285-8d4b-75ee78787346%5C%22%2C%5C%22deeplinkType%5C%22%3A4%7D%22%2C%22channelId%22%3Anull%7D";
     }, 5000);
 }

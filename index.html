@@ -17,40 +17,89 @@
 
     <div id="examContent">
         <h1>Examen</h1>
-         <h1>Ejercicio: Implementación de una Conexión Única a la Base de Datos</h1>
-    <p>Descripción:</p>
-    <p>Vas a implementar un sistema de conexión a una base de datos que solo permita una única instancia activa en toda la aplicación. El objetivo es garantizar que no se creen múltiples conexiones innecesarias a la base de datos, lo que puede causar problemas de rendimiento y gestión de recursos.</p>
+         <h1>Objetivo del Ejercicio</h1>
+    <p>Crear una jerarquía de clases que represente diferentes tipos de aventureros en un juego de rol, como guerreros y magos, y usar una fábrica para generar instancias de estos aventureros.</p>
+
+    <h2>Pasos a Seguir</h2>
     
-    <h2>Requerimientos:</h2>
+    <h3>Parte 1: Creación de Clases</h3>
     <ol>
-        <li>
-            <strong>Clase DatabaseConnection:</strong>
+        <li>Crear la clase base <strong>Aventurero</strong>:</li>
+        <ul>
+            <li><strong>Propiedades:</strong></li>
             <ul>
-                <li>Implementa la clase DatabaseConnection utilizando el patrón Singleton.</li>
-                <li>La clase debe tener un método <code>connect()</code> que simule la conexión a la base de datos. Este método puede simplemente retornar un mensaje que indique que la conexión ha sido establecida.</li>
-                <li>Implementa un método <code>disconnect()</code> que simule la desconexión de la base de datos.</li>
+                <li><strong>nombre:</strong> El nombre del aventurero.</li>
+                <li><strong>nivel:</strong> El nivel del aventurero.</li>
+                <li><strong>clase:</strong> La clase del aventurero (e.g., guerrero, mago).</li>
             </ul>
-        </li>
-        <li>
-            <strong>Validación de Instancia Única:</strong>
+            <li><strong>Método describir:</strong></li>
             <ul>
-                <li>Asegúrate de que cada vez que se intente crear una nueva instancia de DatabaseConnection, se devuelva la misma instancia que la anterior.</li>
+                <li>Retorna una cadena que describe al aventurero con su nombre, clase y nivel.</li>
             </ul>
-        </li>
-        <li>
-            <strong>Prueba del Singleton:</strong>
+        </ul>
+        <li>Crear la clase <strong>Guerrero</strong> que extiende de <strong>Aventurero</strong>:</li>
+        <ul>
+            <li><strong>Propiedades adicionales:</strong></li>
             <ul>
-                <li>Crea dos instancias de DatabaseConnection.</li>
-                <li>Conecta a la base de datos usando ambas instancias.</li>
-                <li>Verifica que ambas instancias son idénticas y que la conexión se establece solo una vez.</li>
+                <li><strong>arma:</strong> El arma que maneja el guerrero.</li>
             </ul>
-        </li>
+            <li><strong>Método describir:</strong></li>
+            <ul>
+                <li>Sobrescribir el método describir para incluir información sobre el arma.</li>
+            </ul>
+        </ul>
+        <li>Crear la clase <strong>Mago</strong> que extiende de <strong>Aventurero</strong>:</li>
+        <ul>
+            <li><strong>Propiedades adicionales:</strong></li>
+            <ul>
+                <li><strong>tipo:</strong> El tipo de magia que practica el mago (e.g., fuego, agua).</li>
+            </ul>
+            <li><strong>Método describir:</strong></li>
+            <ul>
+                <li>Sobrescribir el método describir para incluir información sobre el tipo de magia.</li>
+            </ul>
+        </ul>
     </ol>
+
+    <h3>Parte 2: Creación de una Fábrica de Aventureros</h3>
+    <ol>
+        <li>Crear la clase <strong>AventureroFactory</strong>:</li>
+        <ul>
+            <li><strong>Método crearAventurero:</strong></li>
+            <ul>
+                <li>Recibe el tipo de aventurero (guerrero o mago), nombre, nivel y un parámetro adicional (arma o tipo de magia).</li>
+                <li>Usa un switch para decidir qué tipo de aventurero crear basado en el parámetro tipo.</li>
+                <li>Retorna una instancia de Guerrero o Mago según corresponda.</li>
+                <li>Si el tipo de aventurero no es válido, muestra un error en la consola.</li>
+            </ul>
+        </ul>
+    </ol>
+
+    <h3>Parte 3: Pruebas</h3>
+    <ol>
+        <li><strong>Crear instancias usando la fábrica:</strong></li>
+        <ul>
+            <li>Crea un guerrero y un mago usando el método <em>crearAventurero</em> de la fábrica.</li>
+            <li>Llama al método <em>describir</em> en cada instancia para verificar que la salida sea la correcta.</li>
+        </ul>
+        <li><strong>Manejo de errores:</strong></li>
+        <ul>
+            <li>Intenta crear un aventurero con un tipo inválido y verifica que se muestre un mensaje de error en la consola.</li>
+        </ul>
+    </ol>
+
+    <h2>Puntos Clave</h2>
+    <ul>
+        <li><strong>Herencia:</strong> Asegúrate de entender cómo las subclases (Guerrero y Mago) heredan de la clase base (Aventurero).</li>
+        <li><strong>Sobrescritura de métodos:</strong> Comprende cómo y por qué sobrescribir el método <em>describir</em> en las subclases.</li>
+        <li><strong>Patrón de diseño Fábrica:</strong> Aprende cómo una fábrica puede simplificar la creación de objetos basados en diferentes condiciones.</li>
+    </ul>
 <br><br>
+<h1>Resultado esperado</h1>
     <img src="test.png" alt="">
 
     <br><br><br>
-        <p id="timer">Tiempo restante: <span id="time">3600</span> segundos</p>
+        <p id="timer">Tiempo restante: <span id="time">7200</span> segundos</p>
         <p id="warning"></p>
 
         <!-- Iframe para cargar el sitio -->
@@ -64,7 +113,7 @@
             <button type="button" onclick="submitExam()">Enviar Examen</button>
         </form>
         <h1>Documentación</h1>
-        <iframe src="https://codi.link/%7C%7CY2xhc3MgUHJpbnRlciB7DQogIC8vIFZhcmlhYmxlIGVzdMOhdGljYSBwYXJhIGFsbWFjZW5hciBsYSBpbnN0YW5jaWEgw7puaWNhIGRlIFByaW50ZXINCiAgc3RhdGljICNpbnN0YW5jZTsNCg0KICAvLyBDb25zdHJ1Y3RvciBwcml2YWRvIHBhcmEgZXZpdGFyIGxhIGNyZWFjacOzbiBkZSBtw7psdGlwbGVzIGluc3RhbmNpYXMNCiAgY29uc3RydWN0b3IoKSB7DQogICAgaWYgKFByaW50ZXIuI2luc3RhbmNlKSB7DQogICAgICByZXR1cm4gUHJpbnRlci4jaW5zdGFuY2U7DQogICAgfQ0KDQogICAgLy8gSW5pY2lhbGl6YWNpw7NuIGRlIHByb3BpZWRhZGVzIGRlIGxhIGltcHJlc29yYQ0KICAgIHRoaXMucHJpbnRRdWV1ZSA9IFtdOw0KICAgIFByaW50ZXIuI2luc3RhbmNlID0gdGhpczsNCiAgfQ0KDQogIC8vIE3DqXRvZG8gcGFyYSBhZ3JlZ2FyIHRyYWJham9zIGEgbGEgY29sYSBkZSBpbXByZXNpw7NuDQogIGFkZEpvYihqb2IpIHsNCiAgICBpZiAodHlwZW9mIGpvYiAhPT0gJ3N0cmluZycgfHwgam9iLnRyaW0oKSA9PT0gJycpIHsNCiAgICAgIGNvbnNvbGUuZXJyb3IoJ0ludmFsaWQgam9iLiBQbGVhc2UgcHJvdmlkZSBhIG5vbi1lbXB0eSBzdHJpbmcuJyk7DQogICAgICByZXR1cm47DQogICAgfQ0KICAgIHRoaXMucHJpbnRRdWV1ZS5wdXNoKGpvYik7DQogICAgY29uc29sZS5sb2coYEpvYiAnJHtqb2J9JyBhZGRlZCB0byB0aGUgcHJpbnQgcXVldWUuYCk7DQogIH0NCg0KICAvLyBNw6l0b2RvIHBhcmEgcHJvY2VzYXIgeSBlbGltaW5hciB0cmFiYWpvcyBkZSBsYSBjb2xhIGRlIGltcHJlc2nDs24NCiAgcHJpbnQoKSB7DQogICAgaWYgKHRoaXMucHJpbnRRdWV1ZS5sZW5ndGggPT09IDApIHsNCiAgICAgIGNvbnNvbGUubG9nKCdObyBqb2JzIGluIHRoZSBwcmludCBxdWV1ZS4nKTsNCiAgICAgIHJldHVybjsNCiAgICB9DQoNCiAgICBjb25zdCBqb2IgPSB0aGlzLnByaW50UXVldWUuc2hpZnQoKTsNCiAgICBjb25zb2xlLmxvZyhgUHJpbnRpbmcgam9iOiAke2pvYn1gKTsNCiAgfQ0KDQogIC8vIE3DqXRvZG8gZXN0w6F0aWNvIHBhcmEgb2J0ZW5lciBsYSBpbnN0YW5jaWEgw7puaWNhIGRlIFByaW50ZXINCiAgc3RhdGljIGdldEluc3RhbmNlKCkgew0KICAgIGlmICghUHJpbnRlci4jaW5zdGFuY2UpIHsNCiAgICAgIFByaW50ZXIuI2luc3RhbmNlID0gbmV3IFByaW50ZXIoKTsNCiAgICB9DQogICAgcmV0dXJuIFByaW50ZXIuI2luc3RhbmNlOw0KICB9DQp9DQoNCi8vIFVzbyBkZWwgcGF0csOzbiBTaW5nbGV0b24gcGFyYSBsYSBpbXByZXNvcmENCmNvbnN0IHByaW50ZXIxID0gUHJpbnRlci5nZXRJbnN0YW5jZSgpOw0KY29uc3QgcHJpbnRlcjIgPSBQcmludGVyLmdldEluc3RhbmNlKCk7DQoNCnByaW50ZXIxLmFkZEpvYignRG9jdW1lbnQgMScpOw0KcHJpbnRlcjEuYWRkSm9iKCdEb2N1bWVudCAyJyk7DQpwcmludGVyMS5hZGRKb2IoJycpOyAvLyBJbnRlbnRvIGRlIGFncmVnYXIgdW4gdHJhYmFqbyBpbnbDoWxpZG8NCg0KcHJpbnRlcjIucHJpbnQoKTsgLy8gRGViZXLDrWEgaW1wcmltaXIgIkRvY3VtZW50IDEiDQpwcmludGVyMi5wcmludCgpOyAvLyBEZWJlcsOtYSBpbXByaW1pciAiRG9jdW1lbnQgMiINCnByaW50ZXIyLnByaW50KCk7IC8vIERlYmVyw61hIGluZGljYXIgcXVlIG5vIGhheSB0cmFiYWpvcyBlbiBsYSBjb2xhDQoNCmNvbnNvbGUubG9nKHByaW50ZXIxID09PSBwcmludGVyMik7IC8vIERlYmVyw61hIHNlciB0cnVlDQo=" width="90%" height="500px"></iframe>
+        <iframe src="https://codi.link/%7C%7CY2xhc3MgVXNlciB7DQogIGNvbnN0cnVjdG9yKG5hbWUsIGFnZSkgew0KICAgIHRoaXMubmFtZSA9IG5hbWU7DQogICAgdGhpcy5hZ2UgPSBhZ2U7DQogIH0NCn0NCg0KY2xhc3MgQWRtaW4gZXh0ZW5kcyBVc2VyIHsNCiAgY29uc3RydWN0b3IobmFtZSwgYWdlKSB7DQogICAgc3VwZXIobmFtZSwgYWdlKTsNCiAgICB0aGlzLnJvbGUgPSAnYWRtaW4nOw0KICB9DQp9DQoNCmNsYXNzIE1lbWJlciBleHRlbmRzIFVzZXIgew0KICBjb25zdHJ1Y3RvcihuYW1lLCBhZ2UpIHsNCiAgICBzdXBlcihuYW1lLCBhZ2UpOw0KICAgIHRoaXMucm9sZSA9ICdtZW1iZXInOw0KICB9DQp9DQoNCmNsYXNzIFVzZXJGYWN0b3J5IHsNCiAgY3JlYXRlVXNlcih0eXBlLCBuYW1lLCBhZ2UpIHsNCiAgICBzd2l0Y2ggKHR5cGUpIHsNCiAgICAgIGNhc2UgJ2FkbWluJzoNCiAgICAgICAgcmV0dXJuIG5ldyBBZG1pbihuYW1lLCBhZ2UpOw0KICAgICAgY2FzZSAnbWVtYmVyJzoNCiAgICAgICAgcmV0dXJuIG5ldyBNZW1iZXIobmFtZSwgYWdlKTsNCiAgICAgIGRlZmF1bHQ6DQogICAgICAgIHRocm93IG5ldyBFcnJvcignVXNlciB0eXBlIG5vdCByZWNvZ25pemVkJyk7DQogICAgfQ0KICB9DQp9DQoNCi8vIFRlc3QNCmNvbnN0IHVzZXJGYWN0b3J5ID0gbmV3IFVzZXJGYWN0b3J5KCk7DQoNCmNvbnN0IGFkbWluID0gdXNlckZhY3RvcnkuY3JlYXRlVXNlcignYWRtaW4nLCAnQWxpY2UnLCAzMCk7DQpjb25zdCBtZW1iZXIgPSB1c2VyRmFjdG9yeS5jcmVhdGVVc2VyKCdtZW1iZXInLCAnQm9iJywgMjUpOw0KDQpjb25zb2xlLmxvZyhhZG1pbik7DQpjb25zb2xlLmxvZyhtZW1iZXIpOw0K" width="90%" height="500px"></iframe>
         
 
     </div>
