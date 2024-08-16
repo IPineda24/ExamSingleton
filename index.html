@@ -16,87 +16,46 @@
     </div>
 
     <div id="examContent">
-        <h1>Examen</h1>
-         <h1>Objetivo del Ejercicio</h1>
-    <p>Crear una jerarquía de clases que represente diferentes tipos de aventureros en un juego de rol, como guerreros y magos, y usar una fábrica para generar instancias de estos aventureros.</p>
+        <h1>Examen de arreglos</h1>
 
-    <h2>Pasos a Seguir</h2>
-    
-    <h3>Parte 1: Creación de Clases</h3>
+    <h2>Transformación y Filtrado de Productos</h2>
+    <p>Dado el array de productos <code>["Mesa", "Silla", "Lámpara", "Sofá", "Cama"]</code>:</p>
     <ol>
-        <li>Crear la clase base <strong>Aventurero</strong>:</li>
-        <ul>
-            <li><strong>Propiedades:</strong></li>
-            <ul>
-                <li><strong>nombre:</strong> El nombre del aventurero.</li>
-                <li><strong>nivel:</strong> El nivel del aventurero.</li>
-                <li><strong>clase:</strong> La clase del aventurero (e.g., guerrero, mago).</li>
-            </ul>
-            <li><strong>Método describir:</strong></li>
-            <ul>
-                <li>Retorna una cadena que describe al aventurero con su nombre, clase y nivel.</li>
-            </ul>
-        </ul>
-        <li>Crear la clase <strong>Guerrero</strong> que extiende de <strong>Aventurero</strong>:</li>
-        <ul>
-            <li><strong>Propiedades adicionales:</strong></li>
-            <ul>
-                <li><strong>arma:</strong> El arma que maneja el guerrero.</li>
-            </ul>
-            <li><strong>Método describir:</strong></li>
-            <ul>
-                <li>Sobrescribir el método describir para incluir información sobre el arma.</li>
-            </ul>
-        </ul>
-        <li>Crear la clase <strong>Mago</strong> que extiende de <strong>Aventurero</strong>:</li>
-        <ul>
-            <li><strong>Propiedades adicionales:</strong></li>
-            <ul>
-                <li><strong>tipo:</strong> El tipo de magia que practica el mago (e.g., fuego, agua).</li>
-            </ul>
-            <li><strong>Método describir:</strong></li>
-            <ul>
-                <li>Sobrescribir el método describir para incluir información sobre el tipo de magia.</li>
-            </ul>
-        </ul>
+        <li>Convierte cada producto a minúsculas.</li>
+        <li>Filtra los productos que tengan más de 4 letras.</li>
+        <li>Añade la palabra "producto" al inicio de cada elemento filtrado.</li>
+        <li>Únelos en una sola cadena separada por comas.</li>
     </ol>
+    <p><strong>Resultado esperado:</strong> <code>"producto lámpara, producto silla"</code></p>
 
-    <h3>Parte 2: Creación de una Fábrica de Aventureros</h3>
+    <h2>Ejercicio 1: Procesamiento de Apellidos</h2>
+    <p>Dada una lista de apellidos <code>["García", "López", "Martínez", "Sánchez", "Pérez"]</code>:</p>
     <ol>
-        <li>Crear la clase <strong>AventureroFactory</strong>:</li>
-        <ul>
-            <li><strong>Método crearAventurero:</strong></li>
-            <ul>
-                <li>Recibe el tipo de aventurero (guerrero o mago), nombre, nivel y un parámetro adicional (arma o tipo de magia).</li>
-                <li>Usa un switch para decidir qué tipo de aventurero crear basado en el parámetro tipo.</li>
-                <li>Retorna una instancia de Guerrero o Mago según corresponda.</li>
-                <li>Si el tipo de aventurero no es válido, muestra un error en la consola.</li>
-            </ul>
-        </ul>
+        <li>Filtra los apellidos que comienzan con la letra "M".</li>
+        <li>Convierte los apellidos filtrados a minúsculas.</li>
+        <li>Une los apellidos resultantes en una sola cadena separada por punto y coma.</li>
     </ol>
+    <p><strong>Resultado esperado:</strong> <code>"martínez"</code></p>
 
-    <h3>Parte 3: Pruebas</h3>
+    <h2>Ejercicio 2: Análisis de Comentarios</h2>
+    <p>Dado el array de comentarios <code>["Me gusta mucho este producto", "No me convenció", "Excelente calidad", "Podría ser mejor"]</code>:</p>
     <ol>
-        <li><strong>Crear instancias usando la fábrica:</strong></li>
-        <ul>
-            <li>Crea un guerrero y un mago usando el método <em>crearAventurero</em> de la fábrica.</li>
-            <li>Llama al método <em>describir</em> en cada instancia para verificar que la salida sea la correcta.</li>
-        </ul>
-        <li><strong>Manejo de errores:</strong></li>
-        <ul>
-            <li>Intenta crear un aventurero con un tipo inválido y verifica que se muestre un mensaje de error en la consola.</li>
-        </ul>
+        <li>Convierte todos los comentarios a minúsculas.</li>
+        <li>Filtra los comentarios que contienen la palabra "me".</li>
+        <li>Ordena los comentarios filtrados alfabéticamente.</li>
+        <li>Únelos en una sola cadena separada por puntos y un espacio.</li>
     </ol>
+    <p><strong>Resultado esperado:</strong> <code>"me gusta mucho este producto. no me convenció. podría ser mejor"</code></p>
 
-    <h2>Puntos Clave</h2>
-    <ul>
-        <li><strong>Herencia:</strong> Asegúrate de entender cómo las subclases (Guerrero y Mago) heredan de la clase base (Aventurero).</li>
-        <li><strong>Sobrescritura de métodos:</strong> Comprende cómo y por qué sobrescribir el método <em>describir</em> en las subclases.</li>
-        <li><strong>Patrón de diseño Fábrica:</strong> Aprende cómo una fábrica puede simplificar la creación de objetos basados en diferentes condiciones.</li>
-    </ul>
-<br><br>
-<h1>Resultado esperado</h1>
-    <img src="test.png" alt="">
+    <h2>Ejercicio 3: Construcción de Frases</h2>
+    <p>Dado el array de palabras <code>["el", "perro", "corre", "rápido"]</code>:</p>
+    <ol>
+        <li>Cambia la primera letra de cada palabra a mayúscula.</li>
+        <li>Une las palabras en una sola cadena con espacios entre ellas.</li>
+        <li>Añade un punto al final de la cadena para formar una oración.</li>
+    </ol>
+    <p><strong>Resultado esperado:</strong> <code>"El Perro Corre Rápido."</code></p>
+
 
     <br><br><br>
         <p id="timer">Tiempo restante: <span id="time">7200</span> segundos</p>
@@ -113,7 +72,7 @@
             <button type="button" onclick="submitExam()">Enviar Examen</button>
         </form>
         <h1>Documentación</h1>
-        <iframe src="https://codi.link/%7C%7CY2xhc3MgVXNlciB7DQogIGNvbnN0cnVjdG9yKG5hbWUsIGFnZSkgew0KICAgIHRoaXMubmFtZSA9IG5hbWU7DQogICAgdGhpcy5hZ2UgPSBhZ2U7DQogIH0NCn0NCg0KY2xhc3MgQWRtaW4gZXh0ZW5kcyBVc2VyIHsNCiAgY29uc3RydWN0b3IobmFtZSwgYWdlKSB7DQogICAgc3VwZXIobmFtZSwgYWdlKTsNCiAgICB0aGlzLnJvbGUgPSAnYWRtaW4nOw0KICB9DQp9DQoNCmNsYXNzIE1lbWJlciBleHRlbmRzIFVzZXIgew0KICBjb25zdHJ1Y3RvcihuYW1lLCBhZ2UpIHsNCiAgICBzdXBlcihuYW1lLCBhZ2UpOw0KICAgIHRoaXMucm9sZSA9ICdtZW1iZXInOw0KICB9DQp9DQoNCmNsYXNzIFVzZXJGYWN0b3J5IHsNCiAgY3JlYXRlVXNlcih0eXBlLCBuYW1lLCBhZ2UpIHsNCiAgICBzd2l0Y2ggKHR5cGUpIHsNCiAgICAgIGNhc2UgJ2FkbWluJzoNCiAgICAgICAgcmV0dXJuIG5ldyBBZG1pbihuYW1lLCBhZ2UpOw0KICAgICAgY2FzZSAnbWVtYmVyJzoNCiAgICAgICAgcmV0dXJuIG5ldyBNZW1iZXIobmFtZSwgYWdlKTsNCiAgICAgIGRlZmF1bHQ6DQogICAgICAgIHRocm93IG5ldyBFcnJvcignVXNlciB0eXBlIG5vdCByZWNvZ25pemVkJyk7DQogICAgfQ0KICB9DQp9DQoNCi8vIFRlc3QNCmNvbnN0IHVzZXJGYWN0b3J5ID0gbmV3IFVzZXJGYWN0b3J5KCk7DQoNCmNvbnN0IGFkbWluID0gdXNlckZhY3RvcnkuY3JlYXRlVXNlcignYWRtaW4nLCAnQWxpY2UnLCAzMCk7DQpjb25zdCBtZW1iZXIgPSB1c2VyRmFjdG9yeS5jcmVhdGVVc2VyKCdtZW1iZXInLCAnQm9iJywgMjUpOw0KDQpjb25zb2xlLmxvZyhhZG1pbik7DQpjb25zb2xlLmxvZyhtZW1iZXIpOw0K" width="90%" height="500px"></iframe>
+        <iframe src="https://codi.link/%7C%7CLy8gQXJyYXkgTWV0aG9kcw0KDQpsZXQgYXJyID0gWzEsIDIsIDMsIDRdOw0KDQovLyBwdXNoDQphcnIucHVzaCg1KTsNCmNvbnNvbGUubG9nKCJwdXNoOiIsIGFycik7IC8vIFsxLCAyLCAzLCA0LCA1XQ0KDQovLyBwb3ANCmFyci5wb3AoKTsNCmNvbnNvbGUubG9nKCJwb3A6IiwgYXJyKTsgLy8gWzEsIDIsIDMsIDRdDQoNCi8vIHNoaWZ0DQphcnIuc2hpZnQoKTsNCmNvbnNvbGUubG9nKCJzaGlmdDoiLCBhcnIpOyAvLyBbMiwgMywgNF0NCg0KLy8gdW5zaGlmdA0KYXJyLnVuc2hpZnQoMSk7DQpjb25zb2xlLmxvZygidW5zaGlmdDoiLCBhcnIpOyAvLyBbMSwgMiwgMywgNF0NCg0KLy8gY29uY2F0DQpsZXQgYXJyMiA9IFs1LCA2XTsNCmxldCBjb21iaW5lZCA9IGFyci5jb25jYXQoYXJyMik7DQpjb25zb2xlLmxvZygiY29uY2F0OiIsIGNvbWJpbmVkKTsgLy8gWzEsIDIsIDMsIDQsIDUsIDZdDQoNCi8vIHNsaWNlDQpsZXQgc2xpY2VkID0gYXJyLnNsaWNlKDEsIDMpOw0KY29uc29sZS5sb2coInNsaWNlOiIsIHNsaWNlZCk7IC8vIFsyLCAzXQ0KDQovLyBzcGxpY2UNCmFyci5zcGxpY2UoMSwgMiwgOSwgMTApOw0KY29uc29sZS5sb2coInNwbGljZToiLCBhcnIpOyAvLyBbMSwgOSwgMTAsIDRdDQoNCi8vIGluZGV4T2YNCmNvbnNvbGUubG9nKCJpbmRleE9mOiIsIGFyci5pbmRleE9mKDEwKSk7IC8vIDINCg0KLy8gaW5jbHVkZXMNCmNvbnNvbGUubG9nKCJpbmNsdWRlczoiLCBhcnIuaW5jbHVkZXMoOSkpOyAvLyB0cnVlDQoNCi8vIGZvckVhY2gNCmFyci5mb3JFYWNoKG51bSA9PiBjb25zb2xlLmxvZygiZm9yRWFjaDoiLCBudW0gKiAyKSk7IC8vIDIsIDE4LCAyMCwgOA0KDQovLyBtYXANCmxldCBkb3VibGVkID0gYXJyLm1hcChudW0gPT4gbnVtICogMik7DQpjb25zb2xlLmxvZygibWFwOiIsIGRvdWJsZWQpOyAvLyBbMiwgMTgsIDIwLCA4XQ0KDQovLyBmaWx0ZXINCmxldCBldmVucyA9IGFyci5maWx0ZXIobnVtID0+IG51bSAlIDIgPT09IDApOw0KY29uc29sZS5sb2coImZpbHRlcjoiLCBldmVucyk7IC8vIFsxMCwgNF0NCg0KLy8gcmVkdWNlDQpsZXQgc3VtID0gYXJyLnJlZHVjZSgoYWNjLCBudW0pID0+IGFjYyArIG51bSwgMCk7DQpjb25zb2xlLmxvZygicmVkdWNlOiIsIHN1bSk7IC8vIDI0DQoNCi8vIGZpbmQNCmxldCBmb3VuZCA9IGFyci5maW5kKG51bSA9PiBudW0gPiA5KTsNCmNvbnNvbGUubG9nKCJmaW5kOiIsIGZvdW5kKTsgLy8gMTANCg0KLy8gZmluZEluZGV4DQpsZXQgaW5kZXggPSBhcnIuZmluZEluZGV4KG51bSA9PiBudW0gPiA5KTsNCmNvbnNvbGUubG9nKCJmaW5kSW5kZXg6IiwgaW5kZXgpOyAvLyAyDQoNCi8vIHNvcnQNCmxldCB1bnNvcnRlZCA9IFszLCAxLCA0LCAyXTsNCnVuc29ydGVkLnNvcnQoKTsNCmNvbnNvbGUubG9nKCJzb3J0OiIsIHVuc29ydGVkKTsgLy8gWzEsIDIsIDMsIDRdDQoNCi8vIHJldmVyc2UNCnVuc29ydGVkLnJldmVyc2UoKTsNCmNvbnNvbGUubG9nKCJyZXZlcnNlOiIsIHVuc29ydGVkKTsgLy8gWzQsIDMsIDIsIDFdDQoNCi8vIGpvaW4NCmxldCBzdHJBcnIgPSBbImEiLCAiYiIsICJjIl07DQpsZXQgc3RyID0gc3RyQXJyLmpvaW4oIi0iKTsNCmNvbnNvbGUubG9nKCJqb2luOiIsIHN0cik7IC8vICdhLWItYycNCg0KLy8gZXZlcnkNCmxldCBhbGxFdmVuID0gWzIsIDQsIDZdLmV2ZXJ5KG51bSA9PiBudW0gJSAyID09PSAwKTsNCmNvbnNvbGUubG9nKCJldmVyeToiLCBhbGxFdmVuKTsgLy8gdHJ1ZQ0KDQovLyBzb21lDQpsZXQgaGFzRXZlbiA9IFsxLCAzLCA1XS5zb21lKG51bSA9PiBudW0gJSAyID09PSAwKTsNCmNvbnNvbGUubG9nKCJzb21lOiIsIGhhc0V2ZW4pOyAvLyBmYWxzZQ0KDQoNCi8vIFN0cmluZyBNZXRob2RzDQoNCmxldCBzdHIxID0gIkhlbGxvIFdvcmxkIjsNCg0KLy8gY2hhckF0DQpjb25zb2xlLmxvZygiY2hhckF0OiIsIHN0cjEuY2hhckF0KDEpKTsgLy8gJ2UnDQoNCi8vIGNvbmNhdA0KbGV0IHN0cjIgPSAiSlMiOw0KbGV0IHJlc3VsdCA9IHN0cjEuY29uY2F0KCIgIiwgc3RyMik7DQpjb25zb2xlLmxvZygiY29uY2F0OiIsIHJlc3VsdCk7IC8vICdIZWxsbyBXb3JsZCBKUycNCg0KLy8gaW5jbHVkZXMNCmNvbnNvbGUubG9nKCJpbmNsdWRlczoiLCBzdHIxLmluY2x1ZGVzKCJXb3JsZCIpKTsgLy8gdHJ1ZQ0KDQovLyBpbmRleE9mDQpjb25zb2xlLmxvZygiaW5kZXhPZjoiLCBzdHIxLmluZGV4T2YoIldvcmxkIikpOyAvLyA2DQoNCi8vIHNsaWNlDQpsZXQgc2xpY2VkU3RyID0gc3RyMS5zbGljZSgwLCA1KTsNCmNvbnNvbGUubG9nKCJzbGljZToiLCBzbGljZWRTdHIpOyAvLyAnSGVsbG8nDQoNCi8vIHN1YnN0cmluZw0KbGV0IHN1YnN0ciA9IHN0cjEuc3Vic3RyaW5nKDAsIDUpOw0KY29uc29sZS5sb2coInN1YnN0cmluZzoiLCBzdWJzdHIpOyAvLyAnSGVsbG8nDQoNCi8vIHN1YnN0cg0KbGV0IHN1YnN0ckFsdCA9IHN0cjEuc3Vic3RyKDAsIDUpOw0KY29uc29sZS5sb2coInN1YnN0cjoiLCBzdWJzdHJBbHQpOyAvLyAnSGVsbG8nDQoNCi8vIHRvTG93ZXJDYXNlDQpjb25zb2xlLmxvZygidG9Mb3dlckNhc2U6Iiwgc3RyMS50b0xvd2VyQ2FzZSgpKTsgLy8gJ2hlbGxvIHdvcmxkJw0KDQovLyB0b1VwcGVyQ2FzZQ0KY29uc29sZS5sb2coInRvVXBwZXJDYXNlOiIsIHN0cjEudG9VcHBlckNhc2UoKSk7IC8vICdIRUxMTyBXT1JMRCcNCg0KLy8gdHJpbQ0KbGV0IHNwYWNlZFN0ciA9ICIgICBIZWxsbyBXb3JsZCAgICI7DQpjb25zb2xlLmxvZygidHJpbToiLCBzcGFjZWRTdHIudHJpbSgpKTsgLy8gJ0hlbGxvIFdvcmxkJw0KDQovLyBzcGxpdA0KbGV0IHNwbGl0U3RyID0gc3RyMS5zcGxpdCgiICIpOw0KY29uc29sZS5sb2coInNwbGl0OiIsIHNwbGl0U3RyKTsgLy8gWydIZWxsbycsICdXb3JsZCddDQoNCi8vIHJlcGxhY2UNCmxldCByZXBsYWNlZFN0ciA9IHN0cjEucmVwbGFjZSgiV29ybGQiLCAiSlMiKTsNCmNvbnNvbGUubG9nKCJyZXBsYWNlOiIsIHJlcGxhY2VkU3RyKTsgLy8gJ0hlbGxvIEpTJw0KDQovLyByZXBlYXQNCmxldCByZXBlYXRlZFN0ciA9IHN0cjEucmVwZWF0KDIpOw0KY29uc29sZS5sb2coInJlcGVhdDoiLCByZXBlYXRlZFN0cik7IC8vICdIZWxsbyBXb3JsZEhlbGxvIFdvcmxkJw0KDQovLyBjaGFyQ29kZUF0DQpjb25zb2xlLmxvZygiY2hhckNvZGVBdDoiLCBzdHIxLmNoYXJDb2RlQXQoMCkpOyAvLyA3Mg0KDQovLyBzdGFydHNXaXRoDQpjb25zb2xlLmxvZygic3RhcnRzV2l0aDoiLCBzdHIxLnN0YXJ0c1dpdGgoIkhlbGxvIikpOyAvLyB0cnVlDQoNCi8vIGVuZHNXaXRoDQpjb25zb2xlLmxvZygiZW5kc1dpdGg6Iiwgc3RyMS5lbmRzV2l0aCgiV29ybGQiKSk7IC8vIHRydWUNCg0KLy8gbWF0Y2gNCmxldCBtYXRjaFN0ciA9ICJUaGUgcmFpbiBpbiBTcGFpbiI7DQpsZXQgbWF0Y2hlcyA9IG1hdGNoU3RyLm1hdGNoKC9haW4vZyk7DQpjb25zb2xlLmxvZygibWF0Y2g6IiwgbWF0Y2hlcyk7IC8vIFsnYWluJywgJ2FpbicsICdhaW4nXQ0KDQovLyBzZWFyY2gNCmxldCBzZWFyY2hTdHIgPSBtYXRjaFN0ci5zZWFyY2goL2Fpbi8pOw0KY29uc29sZS5sb2coInNlYXJjaDoiLCBzZWFyY2hTdHIpOyAvLyA1DQoNCi8vIHBhZFN0YXJ0DQpsZXQgcGFkZGVkU3RhcnQgPSAiNSIucGFkU3RhcnQoMywgIjAiKTsNCmNvbnNvbGUubG9nKCJwYWRTdGFydDoiLCBwYWRkZWRTdGFydCk7IC8vICcwMDUnDQoNCi8vIHBhZEVuZA0KbGV0IHBhZGRlZEVuZCA9ICI1Ii5wYWRFbmQoMywgIjAiKTsNCmNvbnNvbGUubG9nKCJwYWRFbmQ6IiwgcGFkZGVkRW5kKTsgLy8gJzUwMCcNCg==" width="90%" height="500px"></iframe>
         
 
     </div>
