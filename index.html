@@ -4,120 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Examen</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="pinContainer">
+    <div id="pinContainer" class="container">
         <h2>Introduce tu Nombre y PIN</h2>
-        <input type="text" id="nameInput" placeholder="Ingrese su nombre"><br><br>
-        <input type="password" id="pinInput" placeholder="Ingrese PIN"><br><br>
+        <input type="text" id="nameInput" placeholder="Ingrese su nombre">
+        <input type="password" id="pinInput" placeholder="Ingrese PIN">
         <button onclick="checkCredentials()">Ingresar</button>
         <p id="pinError" class="error-message">PIN incorrecto o falta de nombre. Intenta de nuevo.</p>
     </div>
 
-    <div id="examContent">
+    <div id="examContent" class="container">
         <h1>Examen</h1>
-         <h1>Objetivo del Ejercicio</h1>
-    <p>Crear una jerarquía de clases que represente diferentes tipos de aventureros en un juego de rol, como guerreros y magos, y usar una fábrica para generar instancias de estos aventureros.</p>
+        <h2>Ejercicio: Implementación de un Adaptador para Convertir Pesos</h2>
+        <p>
+            En este ejercicio, trabajarás con dos clases: <strong>Pounds</strong> y <strong>Kilos</strong>. Cada una de estas clases maneja un peso en una unidad específica: libras o kilos, respectivamente.
+        </p>
+        <p>
+            La clase <strong>Pounds</strong> se utiliza para manejar pesos en libras, mientras que la clase <strong>Kilos</strong> se utiliza para manejar pesos en kilos. Cada clase tiene un método para obtener el peso en la unidad correspondiente:
+        </p>
+        <ul>
+            <li><strong>getWeightInPounds()</strong>: Devuelve el peso en libras.</li>
+            <li><strong>getWeightInKilos()</strong>: Devuelve el peso en kilos.</li>
+        </ul>
+        <p>
+            Tu tarea es implementar un <strong>Adaptador</strong> que permita convertir pesos de una unidad a otra, de manera que se puedan realizar conversiones entre libras y kilos fácilmente. Específicamente, debes crear una clase llamada <strong>WeightAdapter</strong> que:
+        </p>
+        <ul>
+            <li>Convierta el peso de kilos a libras cuando se llame al método <strong>getWeightInPounds()</strong>.</li>
+            <li>Devuelva el peso en kilos cuando se llame al método <strong>getWeightInKilos()</strong>.</li>
+        </ul>
+        <p>
+            Una vez que hayas implementado el adaptador, debes probar su funcionalidad realizando lo siguiente:
+        </p>
+        <ol>
+            <li>Crear una instancia de la clase <strong>Pounds</strong> con un peso de 150 libras y mostrar el peso en libras.</li>
+            <li>Crear una instancia de la clase <strong>Kilos</strong> con un peso de 68 kilos y luego utilizar el adaptador para convertir este peso a libras.</li>
+            <li>Mostrar tanto el peso convertido a libras como el peso original en kilos utilizando el adaptador.</li>
+        </ol>
+        <p>
+            Recuerda que 1 kilogramo equivale aproximadamente a 2.20462 libras, y deberás usar esta conversión en tu adaptador.
+        </p>
+        <p>
+            ¡Buena suerte y diviértete programando!
+        </p>
 
-    <h2>Pasos a Seguir</h2>
-    
-    <h3>Parte 1: Creación de Clases</h3>
-    <ol>
-        <li>Crear la clase base <strong>Aventurero</strong>:</li>
-        <ul>
-            <li><strong>Propiedades:</strong></li>
-            <ul>
-                <li><strong>nombre:</strong> El nombre del aventurero.</li>
-                <li><strong>nivel:</strong> El nivel del aventurero.</li>
-                <li><strong>clase:</strong> La clase del aventurero (e.g., guerrero, mago).</li>
-            </ul>
-            <li><strong>Método describir:</strong></li>
-            <ul>
-                <li>Retorna una cadena que describe al aventurero con su nombre, clase y nivel.</li>
-            </ul>
-        </ul>
-        <li>Crear la clase <strong>Guerrero</strong> que extiende de <strong>Aventurero</strong>:</li>
-        <ul>
-            <li><strong>Propiedades adicionales:</strong></li>
-            <ul>
-                <li><strong>arma:</strong> El arma que maneja el guerrero.</li>
-            </ul>
-            <li><strong>Método describir:</strong></li>
-            <ul>
-                <li>Sobrescribir el método describir para incluir información sobre el arma.</li>
-            </ul>
-        </ul>
-        <li>Crear la clase <strong>Mago</strong> que extiende de <strong>Aventurero</strong>:</li>
-        <ul>
-            <li><strong>Propiedades adicionales:</strong></li>
-            <ul>
-                <li><strong>tipo:</strong> El tipo de magia que practica el mago (e.g., fuego, agua).</li>
-            </ul>
-            <li><strong>Método describir:</strong></li>
-            <ul>
-                <li>Sobrescribir el método describir para incluir información sobre el tipo de magia.</li>
-            </ul>
-        </ul>
-    </ol>
+        <h1>copia el codigo base</h1>
 
-    <h3>Parte 2: Creación de una Fábrica de Aventureros</h3>
-    <ol>
-        <li>Crear la clase <strong>AventureroFactory</strong>:</li>
-        <ul>
-            <li><strong>Método crearAventurero:</strong></li>
-            <ul>
-                <li>Recibe el tipo de aventurero (guerrero o mago), nombre, nivel y un parámetro adicional (arma o tipo de magia).</li>
-                <li>Usa un switch para decidir qué tipo de aventurero crear basado en el parámetro tipo.</li>
-                <li>Retorna una instancia de Guerrero o Mago según corresponda.</li>
-                <li>Si el tipo de aventurero no es válido, muestra un error en la consola.</li>
-            </ul>
-        </ul>
-    </ol>
+        <pre>
+<code>
+// Clase que maneja pesos en libras
+class Pounds {
+    constructor(weight) {
+        this.weight = weight;
+    }
 
-    <h3>Parte 3: Pruebas</h3>
-    <ol>
-        <li><strong>Crear instancias usando la fábrica:</strong></li>
-        <ul>
-            <li>Crea un guerrero y un mago usando el método <em>crearAventurero</em> de la fábrica.</li>
-            <li>Llama al método <em>describir</em> en cada instancia para verificar que la salida sea la correcta.</li>
-        </ul>
-        <li><strong>Manejo de errores:</strong></li>
-        <ul>
-            <li>Intenta crear un aventurero con un tipo inválido y verifica que se muestre un mensaje de error en la consola.</li>
-        </ul>
-    </ol>
+    getWeightInPounds() {
+        console.log("Peso en libras:", this.weight);
+        return this.weight;
+    }
+}
 
-    <h2>Puntos Clave</h2>
-    <ul>
-        <li><strong>Herencia:</strong> Asegúrate de entender cómo las subclases (Guerrero y Mago) heredan de la clase base (Aventurero).</li>
-        <li><strong>Sobrescritura de métodos:</strong> Comprende cómo y por qué sobrescribir el método <em>describir</em> en las subclases.</li>
-        <li><strong>Patrón de diseño Fábrica:</strong> Aprende cómo una fábrica puede simplificar la creación de objetos basados en diferentes condiciones.</li>
-    </ul>
-<br><br>
-<h1>Resultado esperado</h1>
-    <img src="test.png" alt="">
+// Clase que maneja pesos en kilos
+class Kilos {
+    constructor(weight) {
+        this.weight = weight;
+    }
 
-    <br><br><br>
+    getWeightInKilos() {
+        console.log("Peso en kilos:", this.weight);
+        return this.weight;
+    }
+}
+
+// Implementa un adaptador que convierta libras a kilos y viceversa
+class WeightAdapter {
+    constructor(weightObject) {
+        this.weightObject = weightObject;
+    }
+
+    getWeightInPounds() {
+        if (this.weightObject instanceof Kilos) {
+            // Convierte kilos a libras
+            return this.weightObject.getWeightInKilos() * 2.20462;
+        } else if (this.weightObject instanceof Pounds) {
+            return this.weightObject.getWeightInPounds();
+        }
+    }
+
+    getWeightInKilos() {
+        if (this.weightObject instanceof Pounds) {
+            // Convierte libras a kilos
+            return this.weightObject.getWeightInPounds() * 0.453592;
+        } else if (this.weightObject instanceof Kilos) {
+            return this.weightObject.getWeightInKilos();
+        }
+    }
+}
+
+//**************************
+
+// 1. Trabajar con peso en libras
+const weightInPounds = new Pounds(150);
+weightInPounds.getWeightInPounds();
+
+// 2. Trabajar con peso en kilos a través del adaptador
+const weightInKilos = new Kilos(68);
+const weightAdapter = new WeightAdapter(weightInKilos);
+
+console.log("Convertido a libras:", weightAdapter.getWeightInPounds()); // Convertir kilos a libras
+console.log("Convertido a kilos:", weightAdapter.getWeightInKilos());   // Obtener el peso en kilos
+</code>
+    </pre>
+        <h2>Formulas a usar</h2>
+        <img src="formula.png" alt="Formula de conversión de peso">
+
         <p id="timer">Tiempo restante: <span id="time">7200</span> segundos</p>
         <p id="warning"></p>
 
+        <button onclick="refreshIframe()">Refrescar Compilador</button>
+        <p>Al refrescar se borra el contenido del compilador.</p>
+
         <!-- Iframe para cargar el compilador -->
-        <iframe src="https://onecompiler.com/nodejs" width="90%" height="500px"></iframe>
+        <iframe id="myIframe" src="https://onecompiler.com/nodejs" width="90%" height="600"></iframe>
 
         <!-- Formulario para pegar el código -->
         <form id="examForm">
-            <label for="code">Pega aquí tu código editado:</label><br>
-            <textarea id="code" name="code" rows="10" cols="50"></textarea><br><br>
+            <label for="code">Pega aquí tu código editado:</label>
+            <textarea id="code" name="code" rows="10" cols="50"></textarea>
 
             <button type="button" onclick="submitExam()">Enviar Examen</button>
         </form>
 
-
-        <h1>Documentación</h1>
-        <iframe src="https://codi.link/%7C%7CY2xhc3MgVXNlciB7DQogIGNvbnN0cnVjdG9yKG5hbWUsIGFnZSkgew0KICAgIHRoaXMubmFtZSA9IG5hbWU7DQogICAgdGhpcy5hZ2UgPSBhZ2U7DQogIH0NCn0NCg0KY2xhc3MgQWRtaW4gZXh0ZW5kcyBVc2VyIHsNCiAgY29uc3RydWN0b3IobmFtZSwgYWdlKSB7DQogICAgc3VwZXIobmFtZSwgYWdlKTsNCiAgICB0aGlzLnJvbGUgPSAnYWRtaW4nOw0KICB9DQp9DQoNCmNsYXNzIE1lbWJlciBleHRlbmRzIFVzZXIgew0KICBjb25zdHJ1Y3RvcihuYW1lLCBhZ2UpIHsNCiAgICBzdXBlcihuYW1lLCBhZ2UpOw0KICAgIHRoaXMucm9sZSA9ICdtZW1iZXInOw0KICB9DQp9DQoNCmNsYXNzIFVzZXJGYWN0b3J5IHsNCiAgY3JlYXRlVXNlcih0eXBlLCBuYW1lLCBhZ2UpIHsNCiAgICBzd2l0Y2ggKHR5cGUpIHsNCiAgICAgIGNhc2UgJ2FkbWluJzoNCiAgICAgICAgcmV0dXJuIG5ldyBBZG1pbihuYW1lLCBhZ2UpOw0KICAgICAgY2FzZSAnbWVtYmVyJzoNCiAgICAgICAgcmV0dXJuIG5ldyBNZW1iZXIobmFtZSwgYWdlKTsNCiAgICAgIGRlZmF1bHQ6DQogICAgICAgIHRocm93IG5ldyBFcnJvcignVXNlciB0eXBlIG5vdCByZWNvZ25pemVkJyk7DQogICAgfQ0KICB9DQp9DQoNCi8vIFRlc3QNCmNvbnN0IHVzZXJGYWN0b3J5ID0gbmV3IFVzZXJGYWN0b3J5KCk7DQoNCmNvbnN0IGFkbWluID0gdXNlckZhY3RvcnkuY3JlYXRlVXNlcignYWRtaW4nLCAnQWxpY2UnLCAzMCk7DQpjb25zdCBtZW1iZXIgPSB1c2VyRmFjdG9yeS5jcmVhdGVVc2VyKCdtZW1iZXInLCAnQm9iJywgMjUpOw0KDQpjb25zb2xlLmxvZyhhZG1pbik7DQpjb25zb2xlLmxvZyhtZW1iZXIpOw0K" width="90%" height="500px"></iframe>
-        
-
+        <h2>Documentación</h2>
+        <iframe src="https://codi.link/%7C%7CLy8gRGlzcG9zaXRpdm8gYW50aWd1byBxdWUgdXRpbGl6YSBjb25lY3RvciBqYWNrIGRlIDMuNW1tDQpjbGFzcyBPbGRIZWFkcGhvbmUgew0KICAgIGNvbm5lY3RKYWNrKCkgew0KICAgICAgICBjb25zb2xlLmxvZygiQXVyaWN1bGFyZXMgY29uZWN0YWRvcyBjb24gamFjayBkZSAzLjVtbS4iKTsNCiAgICB9DQoNCiAgICBwbGF5U291bmQoKSB7DQogICAgICAgIGNvbnNvbGUubG9nKCJSZXByb2R1Y2llbmRvIHNvbmlkbyBhIHRyYXbDqXMgZGUgYXVyaWN1bGFyZXMgY29uIGphY2sgZGUgMy41bW0uIik7DQogICAgfQ0KfQ0KDQovLyBOdWV2byBkaXNwb3NpdGl2byBkZSBhdWRpbyBxdWUgdXRpbGl6YSBVU0ItQw0KY2xhc3MgVXNiQ0hlYWRwaG9uZSB7DQogICAgY29ubmVjdFVzYkMoKSB7DQogICAgICAgIGNvbnNvbGUubG9nKCJBdXJpY3VsYXJlcyBjb25lY3RhZG9zIGNvbiBVU0ItQy4iKTsNCiAgICB9DQoNCiAgICBwbGF5U291bmQoKSB7DQogICAgICAgIGNvbnNvbGUubG9nKCJSZXByb2R1Y2llbmRvIHNvbmlkbyBhIHRyYXbDqXMgZGUgYXVyaWN1bGFyZXMgY29uIFVTQi1DLiIpOw0KICAgIH0NCn0NCg0KLy8gQWRhcHRhZG9yIGRlIGF1ZGlvIHBhcmEgY29udmVydGlyIGRlIFVTQi1DIGEgamFjayBkZSAzLjVtbQ0KY2xhc3MgQXVkaW9BZGFwdGVyIHsNCiAgICBjb25zdHJ1Y3Rvcih1c2JDSGVhZHBob25lKSB7DQogICAgICAgIHRoaXMudXNiQ0hlYWRwaG9uZSA9IHVzYkNIZWFkcGhvbmU7DQogICAgfQ0KDQogICAgY29ubmVjdEphY2soKSB7DQogICAgICAgIGNvbnNvbGUubG9nKCJBZGFwdGFkb3IgY29udmllcnRlIGNvbmV4acOzbiBkZSBqYWNrIGRlIDMuNW1tIGEgVVNCLUMuIik7DQogICAgICAgIHRoaXMudXNiQ0hlYWRwaG9uZS5jb25uZWN0VXNiQygpOw0KICAgIH0NCg0KICAgIHBsYXlTb3VuZCgpIHsNCiAgICAgICAgY29uc29sZS5sb2coIkFkYXB0YWRvciBwZXJtaXRlIGxhIHJlcHJvZHVjY2nDs24gZGUgc29uaWRvIGEgdHJhdsOpcyBkZSBhdXJpY3VsYXJlcyBVU0ItQy4iKTsNCiAgICAgICAgdGhpcy51c2JDSGVhZHBob25lLnBsYXlTb3VuZCgpOw0KICAgIH0NCn0NCg0KLy8gMS4gVXNhciBhdXJpY3VsYXJlcyBjb24gamFjayBkZSAzLjVtbQ0KY29uc3Qgb2xkSGVhZHBob25lID0gbmV3IE9sZEhlYWRwaG9uZSgpOw0Kb2xkSGVhZHBob25lLmNvbm5lY3RKYWNrKCk7DQpvbGRIZWFkcGhvbmUucGxheVNvdW5kKCk7DQoNCi8vIDIuIFVzYXIgYXVyaWN1bGFyZXMgY29uIFVTQi1DIGEgdHJhdsOpcyBkZWwgYWRhcHRhZG9yDQpjb25zdCB1c2JDSGVhZHBob25lID0gbmV3IFVzYkNIZWFkcGhvbmUoKTsNCmNvbnN0IGF1ZGlvQWRhcHRlciA9IG5ldyBBdWRpb0FkYXB0ZXIodXNiQ0hlYWRwaG9uZSk7DQoNCmF1ZGlvQWRhcHRlci5jb25uZWN0SmFjaygpOyAvLyBDb252ZXJ0aXIgY29uZXhpw7NuIGRlIGphY2sgYSBVU0ItQw0KYXVkaW9BZGFwdGVyLnBsYXlTb3VuZCgpOyAgIC8vIFJlcHJvZHVjaXIgc29uaWRvIHVzYW5kbyBhdXJpY3VsYXJlcyBVU0ItQw0K" width="90%" height="500px"></iframe>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
