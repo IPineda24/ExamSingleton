@@ -16,16 +16,89 @@
     </div>
 
     <div id="examContent">
+        <h1>Examen</h1>
+         <h1>Objetivo del Ejercicio</h1>
+    <p>Crear una jerarquía de clases que represente diferentes tipos de aventureros en un juego de rol, como guerreros y magos, y usar una fábrica para generar instancias de estos aventureros.</p>
+
+    <h2>Pasos a Seguir</h2>
     
-    <!--ADD YOUR INSTRUCCTIOS HERE-->
+    <h3>Parte 1: Creación de Clases</h3>
+    <ol>
+        <li>Crear la clase base <strong>Aventurero</strong>:</li>
+        <ul>
+            <li><strong>Propiedades:</strong></li>
+            <ul>
+                <li><strong>nombre:</strong> El nombre del aventurero.</li>
+                <li><strong>nivel:</strong> El nivel del aventurero.</li>
+                <li><strong>clase:</strong> La clase del aventurero (e.g., guerrero, mago).</li>
+            </ul>
+            <li><strong>Método describir:</strong></li>
+            <ul>
+                <li>Retorna una cadena que describe al aventurero con su nombre, clase y nivel.</li>
+            </ul>
+        </ul>
+        <li>Crear la clase <strong>Guerrero</strong> que extiende de <strong>Aventurero</strong>:</li>
+        <ul>
+            <li><strong>Propiedades adicionales:</strong></li>
+            <ul>
+                <li><strong>arma:</strong> El arma que maneja el guerrero.</li>
+            </ul>
+            <li><strong>Método describir:</strong></li>
+            <ul>
+                <li>Sobrescribir el método describir para incluir información sobre el arma.</li>
+            </ul>
+        </ul>
+        <li>Crear la clase <strong>Mago</strong> que extiende de <strong>Aventurero</strong>:</li>
+        <ul>
+            <li><strong>Propiedades adicionales:</strong></li>
+            <ul>
+                <li><strong>tipo:</strong> El tipo de magia que practica el mago (e.g., fuego, agua).</li>
+            </ul>
+            <li><strong>Método describir:</strong></li>
+            <ul>
+                <li>Sobrescribir el método describir para incluir información sobre el tipo de magia.</li>
+            </ul>
+        </ul>
+    </ol>
 
+    <h3>Parte 2: Creación de una Fábrica de Aventureros</h3>
+    <ol>
+        <li>Crear la clase <strong>AventureroFactory</strong>:</li>
+        <ul>
+            <li><strong>Método crearAventurero:</strong></li>
+            <ul>
+                <li>Recibe el tipo de aventurero (guerrero o mago), nombre, nivel y un parámetro adicional (arma o tipo de magia).</li>
+                <li>Usa un switch para decidir qué tipo de aventurero crear basado en el parámetro tipo.</li>
+                <li>Retorna una instancia de Guerrero o Mago según corresponda.</li>
+                <li>Si el tipo de aventurero no es válido, muestra un error en la consola.</li>
+            </ul>
+        </ul>
+    </ol>
 
+    <h3>Parte 3: Pruebas</h3>
+    <ol>
+        <li><strong>Crear instancias usando la fábrica:</strong></li>
+        <ul>
+            <li>Crea un guerrero y un mago usando el método <em>crearAventurero</em> de la fábrica.</li>
+            <li>Llama al método <em>describir</em> en cada instancia para verificar que la salida sea la correcta.</li>
+        </ul>
+        <li><strong>Manejo de errores:</strong></li>
+        <ul>
+            <li>Intenta crear un aventurero con un tipo inválido y verifica que se muestre un mensaje de error en la consola.</li>
+        </ul>
+    </ol>
 
-    <!--*****************************-->
+    <h2>Puntos Clave</h2>
+    <ul>
+        <li><strong>Herencia:</strong> Asegúrate de entender cómo las subclases (Guerrero y Mago) heredan de la clase base (Aventurero).</li>
+        <li><strong>Sobrescritura de métodos:</strong> Comprende cómo y por qué sobrescribir el método <em>describir</em> en las subclases.</li>
+        <li><strong>Patrón de diseño Fábrica:</strong> Aprende cómo una fábrica puede simplificar la creación de objetos basados en diferentes condiciones.</li>
+    </ul>
+<br><br>
+<h1>Resultado esperado</h1>
+    <img src="test.png" alt="">
 
-
-    <!--*****************************-->  
-<br><br><br>
+    <br><br><br>
         <p id="timer">Tiempo restante: <span id="time">7200</span> segundos</p>
         <p id="warning"></p>
 
@@ -42,10 +115,7 @@
 
 
         <h1>Documentación</h1>
-
-
-    <!-- Enlace de codigos de ejemplo a mostrar -->
-        <iframe src="" width="90%" height="500px"></iframe>
+        <iframe src="https://codi.link/%7C%7CY2xhc3MgVXNlciB7DQogIGNvbnN0cnVjdG9yKG5hbWUsIGFnZSkgew0KICAgIHRoaXMubmFtZSA9IG5hbWU7DQogICAgdGhpcy5hZ2UgPSBhZ2U7DQogIH0NCn0NCg0KY2xhc3MgQWRtaW4gZXh0ZW5kcyBVc2VyIHsNCiAgY29uc3RydWN0b3IobmFtZSwgYWdlKSB7DQogICAgc3VwZXIobmFtZSwgYWdlKTsNCiAgICB0aGlzLnJvbGUgPSAnYWRtaW4nOw0KICB9DQp9DQoNCmNsYXNzIE1lbWJlciBleHRlbmRzIFVzZXIgew0KICBjb25zdHJ1Y3RvcihuYW1lLCBhZ2UpIHsNCiAgICBzdXBlcihuYW1lLCBhZ2UpOw0KICAgIHRoaXMucm9sZSA9ICdtZW1iZXInOw0KICB9DQp9DQoNCmNsYXNzIFVzZXJGYWN0b3J5IHsNCiAgY3JlYXRlVXNlcih0eXBlLCBuYW1lLCBhZ2UpIHsNCiAgICBzd2l0Y2ggKHR5cGUpIHsNCiAgICAgIGNhc2UgJ2FkbWluJzoNCiAgICAgICAgcmV0dXJuIG5ldyBBZG1pbihuYW1lLCBhZ2UpOw0KICAgICAgY2FzZSAnbWVtYmVyJzoNCiAgICAgICAgcmV0dXJuIG5ldyBNZW1iZXIobmFtZSwgYWdlKTsNCiAgICAgIGRlZmF1bHQ6DQogICAgICAgIHRocm93IG5ldyBFcnJvcignVXNlciB0eXBlIG5vdCByZWNvZ25pemVkJyk7DQogICAgfQ0KICB9DQp9DQoNCi8vIFRlc3QNCmNvbnN0IHVzZXJGYWN0b3J5ID0gbmV3IFVzZXJGYWN0b3J5KCk7DQoNCmNvbnN0IGFkbWluID0gdXNlckZhY3RvcnkuY3JlYXRlVXNlcignYWRtaW4nLCAnQWxpY2UnLCAzMCk7DQpjb25zdCBtZW1iZXIgPSB1c2VyRmFjdG9yeS5jcmVhdGVVc2VyKCdtZW1iZXInLCAnQm9iJywgMjUpOw0KDQpjb25zb2xlLmxvZyhhZG1pbik7DQpjb25zb2xlLmxvZyhtZW1iZXIpOw0K" width="90%" height="500px"></iframe>
         
 
     </div>
