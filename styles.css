@@ -102,9 +102,6 @@ iframe {
     transition: transform 0.3s ease;
 }
 
-iframe:hover {
-    transform: scale(1.01);
-}
 
 textarea {
     resize: vertical;
