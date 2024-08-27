@@ -61,60 +61,39 @@ class Pounds {
     constructor(weight) {
         this.weight = weight;
     }
-
+ 
     getWeightInPounds() {
         console.log("Peso en libras:", this.weight);
         return this.weight;
     }
 }
-
+ 
 // Clase que maneja pesos en kilos
 class Kilos {
     constructor(weight) {
         this.weight = weight;
     }
-
+ 
     getWeightInKilos() {
         console.log("Peso en kilos:", this.weight);
         return this.weight;
     }
 }
-
+ 
 // Implementa un adaptador que convierta libras a kilos y viceversa
-class WeightAdapter {
-    constructor(weightObject) {
-        this.weightObject = weightObject;
-    }
-
-    getWeightInPounds() {
-        if (this.weightObject instanceof Kilos) {
-            // Convierte kilos a libras
-            return this.weightObject.getWeightInKilos() * 2.20462;
-        } else if (this.weightObject instanceof Pounds) {
-            return this.weightObject.getWeightInPounds();
-        }
-    }
-
-    getWeightInKilos() {
-        if (this.weightObject instanceof Pounds) {
-            // Convierte libras a kilos
-            return this.weightObject.getWeightInPounds() * 0.453592;
-        } else if (this.weightObject instanceof Kilos) {
-            return this.weightObject.getWeightInKilos();
-        }
-    }
-}
-
+ 
+// tu código aquí
+ 
 //**************************
-
+ 
 // 1. Trabajar con peso en libras
 const weightInPounds = new Pounds(150);
 weightInPounds.getWeightInPounds();
-
+ 
 // 2. Trabajar con peso en kilos a través del adaptador
 const weightInKilos = new Kilos(68);
 const weightAdapter = new WeightAdapter(weightInKilos);
-
+ 
 console.log("Convertido a libras:", weightAdapter.getWeightInPounds()); // Convertir kilos a libras
 console.log("Convertido a kilos:", weightAdapter.getWeightInKilos());   // Obtener el peso en kilos
 </code>
